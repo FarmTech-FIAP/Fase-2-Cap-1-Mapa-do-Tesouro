@@ -121,6 +121,7 @@ O circuito no Wokwi é composto por:
 
 ### 3. Execute o script Python fornecido (clima_farmtech.py).
 
+
 ### 4. O terminal Python exibirá as condições de São Paulo e instruirá qual comando enviar ao Wokwi.
 
 Exemplo: COMANDO PARA O WOKWI: Digite 'S' e aperte Enter (Sem previsão de chuva)
