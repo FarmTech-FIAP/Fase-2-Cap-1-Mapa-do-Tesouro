@@ -76,6 +76,9 @@ Exemplo: COMANDO PARA O WOKWI: Digite 'S' e aperte Enter (Sem previsão de chuva
 
 ### 5. Volte à aba do Wokwi, clique na área do Monitor Serial, digite a letra correspondente (S ou C) e pressione Enter.
 
+## Imagens do circuito
+![Circuito 1](documento/imagens/imagens do circuito.jpeg)
+
 ## 🗃 Histórico de lançamentos
 
 * 0.5.0 - XX/XX/2024
