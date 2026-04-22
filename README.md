@@ -78,9 +78,9 @@ Exemplo: COMANDO PARA O WOKWI: Digite 'S' e aperte Enter (Sem previsão de chuva
 
 ## Imagens do circuito
 
-<img src="documento/imagens/imagem-circuito.jpeg" alt="Circuito 1" width="300">
+![Circuito 1](documento/imagens/circuito1.png)
 
-<img src="documento/imagens/imagem-circuito2.jpeg" alt="Circuito 2" width="300">
+![Circuito 2](documento/imagens/circuito2.png)
 
 ## 🗃 Histórico de lançamentos
 
