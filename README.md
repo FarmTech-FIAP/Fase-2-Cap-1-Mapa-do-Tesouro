@@ -32,6 +32,98 @@ Este projeto compõe a Fase 2 do sistema de gestão agrícola da FarmTech Soluti
 
 O sistema toma decisões de irrigação em tempo real com base nos níveis de nutrientes (NPK), pH, umidade do solo e previsões meteorológicas via API.
 
+## 🎯 Objetivo
+
+Desenvolver um sistema embarcado capaz de:
+
+- monitorar variáveis importantes para o cultivo do milho;
+- simular a disponibilidade de nutrientes essenciais;
+- interpretar condições climáticas externas;
+- tomar uma decisão automática sobre ligar ou não a irrigação;
+- exibir todas as leituras e decisões no **Monitor Serial** do Wokwi.
+
+---
+
+## 🧠 Lógica geral de funcionamento
+
+A lógica do projeto funciona em duas partes:
+
+### 1. Parte embarcada no ESP32
+O ESP32 realiza:
+- leitura dos sensores;
+- leitura dos botões de nutrientes N, P e K;
+- recepção da condição climática via serial;
+- análise das regras de negócio;
+- acionamento do relé que representa a bomba de irrigação.
+
+### 2. Parte externa em Python
+O script Python consulta a API climática para a cidade de **São Paulo** e informa ao usuário qual comando deve ser enviado ao Wokwi:
+
+- `S` → sem previsão de chuva / irrigação pode ser considerada
+- `C` → chovendo / irrigação deve ser bloqueada
+
+Essa integração é **manual**: o Python não envia diretamente para o ESP32. O operador lê o resultado no terminal e digita o comando no **Monitor Serial** do Wokwi.
+
+---
+
+## 🧩 Componentes utilizados
+
+O circuito no Wokwi é composto por:
+
+- **ESP32 DevKit v4**
+- **Sensor DHT22**
+- **Sensor LDR (fotoresistor)**
+- **3 botões** simulando nutrientes:
+  - N
+  - P
+  - K
+- **Módulo relé**
+- **Monitor Serial do Wokwi**
+
+---
+
+## 🔌 Pinagem do projeto
+
+### ESP32 e sensores/atuadores
+
+| Componente | Função | Pino no ESP32 |
+|---|---|---|
+| DHT22 | Leitura de umidade | GPIO 15 |
+| LDR | Leitura analógica usada para simular pH | GPIO 34 |
+| Relé | Acionamento da bomba | GPIO 26 |
+| Botão N | Simula Nitrogênio disponível | GPIO 12 |
+| Botão P | Simula Fósforo disponível | GPIO 14 |
+| Botão K | Simula Potássio disponível | GPIO 27 |
+
+### Alimentação
+
+- DHT22 em **3.3V**
+- LDR em **3.3V**
+- Relé em **5V**
+- GND compartilhado entre os componentes
+
+---
+
+## 📁 Estrutura dos arquivos do projeto
+
+```text
+Fase-2-Cap-1-Mapa-do-Tesouro/
+├── README.md
+├── assets/
+├── config/
+├── document/
+│   ├── imagens/
+│   │   ├── circuito1.png
+│   │   └── circuito2.png
+│   └── other/
+├── scripts/
+├── src/
+├── wokwi/
+├── sketch.ino
+├── diagram.json
+├── libraries.txt
+├── python.py
+└── wokwi-project.txt
 
 
 ## 📁 Estrutura de pastas
